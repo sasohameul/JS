@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {border-spacing: 0; border-collapse: collapse;}
+        thead th, tbody td {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <table >
+        <thead>
+            <tr>
+                <th>이동</th>
+                <th>번호</th>
+                <th>이름</th>
+                <th>내용</th>
+                <th>날짜</th>
+            </tr>
+
+        </thead>
+
+        <tbody class="table">
+        <tr>
+            <td>
+                <!-- 같은 레벨에 있는 요소들이 형제. 연쇄적으로 사용 할 수있다. 버튼의 부모는 td -->
+                <button onclick="down(this)">↓</button>
+                <button onclick="up(this)">↑</button>
+            </td>
+            <td>1</td>
+            <td>홍길자</td>
+            <td>안녕!</td>
+            <td>2019-01-01</td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="down(this)">↓</button>
+                <button onclick="up(this)">↑</button>
+            </td>
+            <td>2</td>
+            <td>이순신</td>
+            <td>반가워</td>
+            <td>2019-02-01</td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="down(this)">↓</button>
+                <button onclick="up(this)">↑</button>
+            </td>
+            <td>3</td>
+            <td>이순신</td>
+            <td>반가워</td>
+            <td>2019-02-01</td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="down(this)">↓</button>
+                <button onclick="up(this)">↑</button>
+            </td>
+            <td>4</td>
+            <td>이순신</td>
+            <td>반가워</td>
+            <td>2019-02-01</td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="down(this)">↓</button>
+                <button onclick="up(this)">↑</button>
+            </td>
+            <td>5</td>
+            <td>이순신</td>
+            <td>반가워</td>
+            <td>2019-02-01</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+//node 공백문자열도 함께 포함
+//element 태그형태 / 그래서 보통 element를 사용한다.
+
+//first child 해당 태그 기준으로 자식태그를 찾는다. 쓸일 별로없음
+//first ElementChild 태그형태로 찾는다. 이걸 보통쓴다.
+
+
+        function down(x){
+
+            var tbody = document.querySelector('.table');
+            var current = x.parentElement.parentElement;
+
+            var next = current.nextElementSibling;
+
+            if(next === null){
+
+                alert("가장 마지막 행입니다.");
+                return;
+
+            }
+            tbody.insertBefore(next, current);
+
+            /* console.dir(x); //어떤 명령문을 쓸지 모를때 사용.
+
+            console.log(x.parentElement); //반드시 태그형태만 선택(Element이름이 들어간 속성을 사용하면 됩니다.) ->이걸 더 많이 사용
+            console.log(x.parentNode); //혹시 문자열 노드가 있다면(공백포함) 문자열도 선택
+            console.log(x.nextElementSibling);//다음형제 노드 (btn)
+            console.log(x.previousElementSibling); //이전 형제노드(null)
+            console.log(x.parentElement.children); //td의 자식들: 버튼
+            console.log(x.parentElement.parentElement.firstElementChild); //tr의 첫번째 자식
+            console.log(x.parentElement.parentElement.lastElementChild); //tr의 마지막 자식 */
+        }
+
+        function up(x){
+
+            //부모님태그.insertBefore(삽입할 노드, 기준이 될 노드) =>기준 노드 앞에 삽입할 노드를 이동시킴
+            var tbody = document.querySelector('.table');
+            //var 삽입할 노드 = x.부모요소
+            var current = x.parentElement.parentElement; //tr
+            //var 기준이 될 노드 = var 삽입할노드.이전요소
+            var prev = current.previousElementSibling; //이전행
+
+            if(prev == null){
+
+                alert("가장 처음 행입니다.");
+                return; //함수 종료
+            }
+
+
+            // console.log(current,prev);
+            tbody.insertBefore(current, prev);
+
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

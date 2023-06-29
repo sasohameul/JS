@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .f{overflow: hidden;}
+        .f div{float: left;}
+
+    </style>
+
+
+
+</head>
+
+<body>
+   
+    <img class="pic" src="img/1.jpg" width="300" alt="이미지" style="border: 3px solid #000" ;>
+    <div class="f">
+            <select class="sel left">
+
+                <option value="1.jpg">봄</option>
+                <option value="2.jpg">여름</option>
+                <option value="3.jpg">가을</option>
+                <option value="4.jpg">겨울</option>
+
+            </select>
+        
+            <div>
+                변경할 색상: <input class="col left" type="color">
+            
+            </div>
+        </div>
+
+  
+    <script>
+
+        var sel = document.querySelector(".sel");
+        var pic = document.querySelector(".pic");
+
+
+
+        sel.addEventListener('change', function () {
+
+            pic.src = 'img/' + sel.value;
+
+        })
+
+        var col = document.querySelector(".col");
+
+        col.addEventListener('change', function () {
+
+            pic.style.borderColor = col.value;
+
+
+
+        })
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

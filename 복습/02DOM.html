@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>
+        예약버튼 클릭시 좌석이 최소한개이상 체크되어있지 않다면 <br>
+        경고창을 띄우는 코드를 작성하세요.<br>
+        또한 체크된 태그의 값은 JSON형태의 문자열로 포장해보세요
+    </h3>
+
+    <form>
+        좌석:
+        <input type="checkbox" name="seat" value="1">1
+        <input type="checkbox" name="seat" value="2">2
+        <input type="checkbox" name="seat" value="3">3
+        <input type="checkbox" name="seat" value="4">4
+        <input type="checkbox" name="seat" value="5">5
+        <input type="checkbox" name="seat" value="6">6
+        <input type="checkbox" name="seat" value="7">7
+
+        <br>
+        <button type="button" id="btn">예약</button>
+    </form>
+
+    <script>
+       
+        var btn = document.getElementById("btn");
+        var checkbox = document.getElementsByTagName("input");
+        var seatCheck = new Array();
+        var bool = true;
+
+        btn.addEventListener('click', function(){
+            
+            for(var i = 0; i < checkbox.length; i++){
+                
+                if(checkbox[i].checked === true){                    
+                    //value까지 넣어주지않으면 콘솔창에 빈칸으로..
+                    seatCheck.push(checkbox[i].value);
+                    bool=false;
+
+                } 
+                                
+            }
+                        
+            
+            if(bool){
+
+                alert('최소 1개 이상의 좌석을 선택하셔야 합니다.');
+            } else {
+
+                console.log(JSON.stringify({data : seatCheck}));
+
+            }
+
+
+
+
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>자바스크립트 카운트(아무 이벤트 선택, innerHTML value 속성을 이용해서 카운트처리하세요)</h2>
+    <h3>필요한 속성을 추가해도 됩니다</h3>
+    <input class="num" type="number" value="0">
+    <button class ="btn" id="plus">+</button>
+
+    <button class="btn" id="minus">-</button>
+
+    <script>
+
+        var n = document.querySelector(".num");
+        var p = document.getElementById("plus");
+        var m = document.getElementById("minus");
+
+       
+
+        console.log(m);
+        console.log(n.value);
+       
+        m.addEventListener('click', function(){ 
+
+            n.value--;
+
+            if(n.value < 0 ){
+
+                alert('0보다 작을 수 없습니다.');
+
+            }
+
+        })
+
+        p.addEventListener('click', function(){
+
+            n.value++;
+
+
+        })
+
+
+
+       
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3> 할 일 목록 만들기 </h3>
+    <input type="text" placeholder="이름을 입력하세요" id="name1">
+    <button id="btn1">확인</button><br>
+    <input id="todo" type="text" placeholder="당신의 할일을 적으세요">
+    <button id="btn2">확인</button>
+
+    <div>
+
+    </div>
+
+
+    <script>
+
+        var name1 = document.getElementById("name1");
+        var btn1 = document.getElementById("btn1");
+        
+        var todo = document.getElementById("todo");
+        var btn2 = document.getElementById("btn2");
+        var parent= document.querySelector("div");
+
+
+        btn1.onclick = function () {
+
+            name1.value = name1.value + '님 환영합니다.';
+            name1.style.border = 'none';
+            btn1.remove();
+        }
+
+        btn2.addEventListener('click', function (){            
+
+            var ul = document.createElement('ul');
+            var li = document.createElement('li');
+            var text = document.createTextNode(todo.value);
+            var btn3 = document.createElement('button');
+
+            li.appendChild(text);
+            btn3.innerHTML = 'x';
+            li.appendChild(btn3);
+            ul.appendChild(li);
+            parent.appendChild(ul);      
+            
+            btn3.addEventListener('click', function(){
+
+                li.remove();
+
+            })    
+
+
+
+
+        })
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

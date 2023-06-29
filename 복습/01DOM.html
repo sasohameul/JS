@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>자바스크립트 카운트(이벤트 innerHTML value 속성을 이용해서 카운트처리하세요)</h2>
+    <h3>필요한 속성을 추가해도 됩니다</h3>
+    <input type="number" value="0" id="num">
+    <button class="operator">+</button>
+    <button class="operator">-</button>
+
+
+    <script>
+        var oper = document.getElementsByClassName("operator");
+        var num = document.getElementById("num");
+
+        //배열 형태의 값일 때, 값을 알고있다면 굳이 for문을 돌리지않고 인덱스 지정해서 onclick 함수 사용 하면됨!
+        oper[0].onclick = function(){
+
+            ++num.value;
+
+
+        }
+
+        oper[1].onclick = function(){
+                        
+            if(num.value <= 0){
+                
+                alert('0보다 작을 수 없습니다.');
+
+            } else if(num.value > 0){
+
+                --num.value;
+
+            }
+            
+        }
+
+    </script>
+
+    <hr/>
+
+    <h2>자바스크립트 카운트(이벤트 innerHTML value 속성을 이용해서 카운트처리하세요)</h2>
+    <h3>필요한 속성을 추가해도 됩니다</h3>
+    <input type="number" value="0" id="num1">
+    <button class="plus" onclick="add(this)">+</button>
+    <button class="minus" onclick="add(this)">-</button>
+
+
+
+    <script>
+
+        var num1 = document.getElementById("num1"); 
+
+        function add(a){
+
+            console.log(a.innerHTML);
+            
+            if(a.innerHTML === '+'){
+
+                ++num1.value;
+            } else {
+
+                //0인 상태에서 눌러야 마이너스가 되니까 <=0
+                if(num1.value <= 0){
+
+                    alert('0보다 작을 수 없습니다.');
+                } else{
+
+                    --num1.value;
+
+                }
+
+
+
+            }
+            
+
+
+
+    
+        }
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

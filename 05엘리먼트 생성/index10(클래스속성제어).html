@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>클래스 속성제어</h3>
+
+    <button type="button" class="btn btn-default" id="btn">클래스 변경</button>
+
+    <script>
+
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+
+            //btn.id = 'xxxx' -> btn에서 xxxx로 바뀜
+            //btn.class= 'xxxx'; 다른건 다바뀌어도 클래스 속성은 바뀌지 않고, 다른 방법으로 바꾸어야한다.
+            //클래스를 변경하는 특별한 방법을 제공해줌
+
+            //console.dir(btn); -> prototype에서는 해당 변수가 사용할 수 있는 함수를 볼 수 있음
+
+            /* console.log(btn.className); //->btn btn-default
+
+            btn.className = "sdsdsdsd";
+            console.log(btn.className); //->sdsdsdsd로 바뀜
+
+            //className 문자열로 반환 / classList는 배열형태로 반환
+
+            console.log(btn.classList); */
+
+            //btn.classList.add('a','b','c'); //a, b, c 클래스를 추가해줌
+            //btn.classList.remove('btn'); //btn클래스 삭제
+            //console.log(btn.classList.contains('a')); //a클래스가 있다면 true 반환, 없다면 false 반환
+
+            btn.classList.toggle("xxx"); //해당 클래스가 있으면 제거, 없으면 추가해줌
+
+        }
+
+    </script>
+
+
+    <hr />
+
+    <h3>토글 버튼 = 하나의 버튼으로 2가지 이상의 기능을 하는 버튼(클래스를 추가하거나 or 제거하는 형태로 사용)</h3>
+
+    <style>
+        .x {
+
+            display: block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #777;
+        }
+
+
+        .a {
+
+            background-color: yellow;
+        }
+
+
+    </style>
+
+    <a href="#" id="x" class="x a">마우스 오버영역</a>
+
+    <script>
+
+        var x = document.getElementById("x");
+        x.onmouseover = function () {
+
+            console.log('마우스 진입');
+
+            x.classList.add("a");
+            //x.classList.toggle("a");
+        }
+
+        x.onmouseout = function () {
+
+            console.log('마우스 아웃');
+            x.classList.remove("a");
+            //x.classList.toggle("a");
+        }
+
+
+
+    </script>
+    
+    <hr/>
+
+    <button type="button" id="btn2">토글버튼</button>
+
+    <script>
+
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function(){
+
+            if(btn2.classList.contains("b")){ //b클래스가 있다면
+
+                btn2.classList.remove("b"); //제거
+                document.body.style.backgroundColor = 'white';
+
+            } else { //b클래스가 없다면
+
+                btn2.classList.add("b");
+                document.body.style.backgroundColor = "coral";
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

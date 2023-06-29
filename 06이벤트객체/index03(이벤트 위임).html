@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p class="title"></p>
+    <ul class="box">
+
+        <li>1.홍길동</li>
+        <li>2.홍길자</li>
+        <li>3.이순신</li>
+        <li>4.홍길순</li>
+        <li>5.신사임당</li>
+
+    </ul>
+
+
+    <script>
+
+        var title = document.querySelector(".title");
+        var box = document.querySelector(".box"); //ul
+       
+        box.onclick = function(){
+
+            //console.log('이벤트 위임'); li에 다 걸림
+            //console.log(event.target); //이벤트가 동작한 태그가 나옴
+            //console.log(event.currentTarget); //이벤트가 실제로 걸려있는 태그를 알려줌
+            //console.log(this); //ul 이 나옴
+
+            //ul 태그일때는 동작을 안하게 만들어주어야한다. (ul태그 부분을 누르면 ul태그에도 이벤트가 걸려 동작하므로)
+            
+            //console.dir(event.target.tagName);//이벤트가 동작한 태그명
+            
+            //조건문 사용할 때,반대의 경우를 조건으로 세워주어야 if문이 적어짐
+            if(event.target.tagName != "LI"){ //ul일때는 동작 종료
+
+                return;
+            }
+            
+            
+            title.innerHTML = event.target.innerHTML;
+        
+        }
+
+
+
+    </script>
+
+</body>
+</html>

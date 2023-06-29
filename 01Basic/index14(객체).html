@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        //JS에서 객체는 {}로 표기하고, 자바의 맵과 같습니다.
+
+        var person = {name: '홍길동', age: 20, arr: [1,2,3]}
+        console.log(typeof person);
+
+        //JS{}에 접근하는 방식은 2가지가 있습니다. 둘다 알아두어야한다.
+        // .으로 접근
+        console.log(person.name);
+        console.log(person.age);
+        console.log(person.arr);
+        console.log(person.arr[0]); //arr의 0번째 index
+
+
+        // 객체['키']
+        console.log(person['name']); //홑따옴표로 넣어주어야한다. (홑따옴표가 아니면 변수 이름을 넣은것이다.)
+        console.log(person['age']); //홑따옴표로 넣어주어야한다.
+        console.log(person['arr']); //홑따옴표로 넣어주어야한다.
+        console.log(person['age'][0]); 
+
+        console.log('------------------------');
+        //객체안의 객체
+        var exam = {kor: 30, eng: 40}
+        var park = {name: '박수', age: 20, exam: exam};
+
+        console.log(park['exam']);
+        console.log(park['exam']['kor']);
+
+        //객체안의 함수
+        var obj = {func: function(){
+            console.log('호출됨')
+        }}
+        
+        //console.log(obj['func']());
+        obj.func();
+
+        console.log('-------------------------------');
+        //리스트 안의 객체
+        var arr = [
+            {id: 1, name:'홍길동'},
+            {id: 2, name:'이순신'},
+            {id: 3, name:'신사임당'}, //,는 상관이 없음
+            
+        ];
+
+        console.log(arr);
+
+     
+        //반복문으로 id와 name을 출력
+
+        for(var i in arr){ 
+
+            console.log(arr[i]['id']);
+            console.log(arr[i].name);
+
+        }
+
+        console.log('-----------------------------------');
+        for(var i = 0; i < arr.length; i++){
+
+            console.log(arr[i].id);
+            console.log(arr[i]['name']);
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

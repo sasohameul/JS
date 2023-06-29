@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 태그 안의 this는 태그 자신 -->
+    <button onclick="check(this)">버튼의 이벤트</button>
+
+    <script>
+
+        function check(a){
+
+            //console.log(a);
+
+            //console.log(a.innerHTML); //(태그 사이값)태그가 가지고있는 값():버튼의 이벤트) 을 태그형태로 얻을 수 있다. 
+
+            a.innerHTML="얍!"
+        }
+    </script>
+
+    <button id="btn">이벤트 함수에서 this</button>
+
+
+
+    <script>
+
+        //JS에서 this의 의미 - 선언된 위치에 따라서 달라집니다.(렉시컬스코프)
+
+        var x = 1;
+        function xxx(){
+            var x = 10;
+            console.log(this); //this는 windw객체를 지칭함
+            console.log(x); //지역변수 x
+            console.log(x.this); //전역변수 x
+        }
+
+        xxx();
+
+        //이벤트 함수안에서의 this
+        var btn = document.getElementById("btn");
+
+        btn.onclick = function(){
+
+            console.log(this); //태그 자기 자신
+        }
+
+
+
+
+
+
+        
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>
