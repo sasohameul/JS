@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>localStorage를 이용하여 마지막에 클릭한 2개의 정보를 불러오기</h3>
+
+    <div class="list">
+        <img src="img/1.jpg" width="300">
+        <img src="img/2.jpg" width="300">
+        <img src="img/3.jpg" width="300">
+        <img src="img/4.jpg" width="300">
+    </div>
+
+    <button id="btn" type="button" onclick="location.href='quiz01_result.html';">최신정보확인하기</button>
+
+
+    <script>
+
+        var list = document.querySelector(".list");
+        var cnt = 0;
+
+        list.onclick = function () {
+
+            cnt++;
+            
+            localStorage.setItem(cnt, event.target.src);
+            
+            if(localStorage.length != 0){
+
+                localStorage.getItem(localStorage.length - 1).replace("http://127.0.0.1:5500/09%EC%BF%A0%ED%82%A4%EC%84%B8%EC%85%98/", "");
+                console.log("첫번째: " + firstSession);
+    
+                localStorage.setItem(cnt, event.target.src);
+                localStorage.getItem(localStorage.length).replace("http://127.0.0.1:5500/09%EC%BF%A0%ED%82%A4%EC%84%B8%EC%85%98/", "");
+                console.log("두번째: " + secondSession);
+
+            }
+
+
+
+
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>

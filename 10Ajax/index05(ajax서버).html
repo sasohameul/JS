@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn">다음 데이터 가져오기</button>
+
+    <script>
+
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+
+            //클릭시 다음데이터
+            pageNum++;
+            ajax(pageNum);
+            
+            
+        }
+        
+        
+        //json은 함수로 묶어두는 편이 좋다
+        function ajax(page) {
+            
+            //api키
+            //516649707767656e393165496c6656
+            
+            //1일때 1~10, 2일때 11~10, 3일때 21~30
+            var end = page * 10;
+            var start = end - 9;
+            //start에서 end번째의 데이터
+            fetch('http://openapi.seoul.go.kr:8088/68624b5066796f70383449416a4357/json/bikeList/' + start + '/' + '+ end+' + '/')
+                .then(function (response) {
+                    console.log(response);
+
+                    return response.json();
+                })
+                .then(function (result) {
+
+                    console.log(result);
+
+                })
+        }
+
+
+        //최초 1번 호출이 들어간다.
+        var pageNum = 1;
+
+        (function(){
+            ajax(pageNum);
+
+        })();
+
+
+
+
+    </script>
+
+</body>
+
+</html>

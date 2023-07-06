@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src ="popup.js"></script>
+
+</head>
+
+<body>
+
+    팝업창
+    <input id="check" type="checkbox"> 오늘 하루 이 창을 열지않기
+
+    <!-- 팝업기능 -->
+    <!-- <script src="popup.js"></script> -->
+
+    <script>
+
+        var check = document.getElementById("check");
+        check.onclick = function(){
+
+            addCookie('main_popup', true);
+            window.close();
+
+
+        }
+
+
+
+    </script>
+    
+
+
+
+   
+</body>
+
+</html>

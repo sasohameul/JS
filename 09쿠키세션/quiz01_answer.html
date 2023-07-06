@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>localStorage를 이용하여 마지막에 클릭한 2개의 정보를 불러오기</h3>
+
+    <div class="list">
+        <img src="img/1.jpg" width="300">
+        <img src="img/2.jpg" width="300">
+        <img src="img/3.jpg" width="300">
+        <img src="img/4.jpg" width="300">
+    </div>
+
+    <button type="button" onclick="location.href='quiz01_result_answer.html';">최신정보확인하기</button>
+
+
+    <script>
+
+      var list = document.querySelector(".list");
+
+      list.addEventListener('click', function(){
+
+        if(event.target.tagName != 'IMG'){ //img 태그가 아니라면 함수 종료
+
+            return;
+
+        }
+
+        var arr = new Array(0); // arr = []
+
+        //기존에 로컬 스토리지가 있다면 얻어와서 arr를 변경해주기
+        if(localStorage.getItem('picture') !== null){
+            arr = JSON.parse(localStorage.getItem('picture'));
+        }
+
+        if(arr.length >= 2){
+        
+            arr.shift();//앞에서 하나 제거
+        }
+
+
+        arr.push(event.target.src);
+
+        //로컬스토리지에 arr을 저장하기 arr로 넣으면 object HTML element ->사용할 수 없기때문에 json으로 ..
+        localStorage.setItem('picture', JSON.stringify(arr));
+
+
+
+      });
+
+
+    </script>
+
+
+</body>
+
+</html>

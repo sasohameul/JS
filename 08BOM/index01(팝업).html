@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn">새창열기</button>
+
+    <script>
+
+        var btn = document.getElementById("btn");
+        btn.onclick = function(){
+
+            //window.open('https://www.naver.com'); //바로 옆탭으로 생성됩니다.
+            //window.open('pop.html');
+                                                // :이 아니라 =
+            window.open('pop.html', '문서별칭', 'width= 200px, height= 200px, left=300px, top=300px');
+        }
+
+
+    </script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>최신 관심 목록</h3>
+    <div class="cartList">
+
+    </div>
+
+    <script>
+ 
+        var cartList = document.querySelector("div");
+
+        function getSession(){
+            
+            var img = document.createElement("img");
+            img.src = localStorage.getItem(localStorage.length-1).replace("http://127.0.0.1:5500/09%EC%BF%A0%ED%82%A4%EC%84%B8%EC%85%98/", "");
+            img.style.width = "300px";
+            
+            cartList.appendChild(img);
+
+            var img2 = document.createElement("img");
+            img2.src =  localStorage.getItem(localStorage.length).replace("http://127.0.0.1:5500/09%EC%BF%A0%ED%82%A4%EC%84%B8%EC%85%98/", "");
+            img2.style.width = "300px";
+
+            cartList.appendChild(img2);
+
+            for(var i = 0; i < localStorage.length-2; i++){
+                
+                localStorage.removeItem(localStorage.key(i));
+
+            }
+            
+            
+        }
+
+        getSession();
+
+
+    </script>
+
+</body>
+</html>

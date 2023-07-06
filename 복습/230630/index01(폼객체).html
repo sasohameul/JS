@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form name="actionForm">
+
+        <h3>가입창</h3>
+
+        이름: <input type="text" name="name">
+
+        번호: <input type="text" name="phone" onblur="phoneFunc()">
+
+        분야:
+        <input type="checkbox" name="check">css
+        <input type="checkbox" name="check">js
+        <input type="checkbox" name="check">html
+
+        <input type="submit" value="확인" id="btn">
+
+
+    </form>
+
+    <script>
+
+        var btn = document.getElementById("btn");
+
+        function phoneFunc() {
+
+            var phone = document.querySelector("input[name='phone']");
+            phone.value=phone.value.replaceAll('-','');
+
+        }
+
+        btn.onclick=function(){
+
+                event.preventDefault();
+
+                if(document.actionForm.name.value == ''){//actionForm의 name값이 공백이라면
+
+                    alert('아이디는 필수입니다.');
+                    document.actionForm.name.focus();
+                    
+
+                } else if(document.actionForm.phone.value.length !=11){
+
+                    alert('번호는 - 없이 11글자입니다.');
+                    document.actionForm.phone.focus();
+                } else {
+
+                    var check = document.actionForm.check;
+                    console.log(check);
+                    var cnt = 0;
+
+                    for(var i = 0; i < check.length; i++){
+
+                        if(check[i].checked){
+    
+                            cnt++;
+                        }
+
+                    }
+
+                    if(cnt == 0){
+                        alert('분야는 적어도 1개 이상 선택해야합니다.');
+                        return;
+                    }
+
+
+                }
+
+                document.actionForm.submit();
+
+        }
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

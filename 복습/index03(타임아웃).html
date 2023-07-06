@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3 class="stopTimeout">여기를 누르면 경고창이 나오지 않습니다.</h3>
+
+    <script>
+
+        var stopTimeout = document.querySelector(".stopTimeout");
+        stopTimeout.onclick = function(){
+
+            clearTimeout(stop);
+            alert('중지되었습니다.');
+
+        }
+
+        setTimeout(test('hello world'),5000);
+
+        function test(x){
+
+            return function(){
+
+                alert('이거 타이밍펑션이야' + x);
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+</html>

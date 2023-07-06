@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .movieList{
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            width: 1800px;
+            padding:30px;
+            margin: 0 auto;
+        }
+
+        .movieList .movie{
+
+            flex-basis: 33.3333%;
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        }
+
+        .movieList .movie img{
+
+            position: absolute;
+            left: 0;
+            top: -20px;
+        }
+
+        .movieList .movie .inner{
+
+            padding-left: 250px;
+        }
+
+        .movieList .movie .summary {
+
+            height: 200px;
+            overflow: hidden;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="movieList">
+
+        <!-- 
+            <div class="movie">
+            <img src="#" alt="">
+            <div class="inner">
+                <h3 class="title">제목</h3>
+                <p class="summary">summary</p>
+                <ul class="genres">
+                    <li>genres</li>
+                    <li>genres</li>
+                </ul>
+            </div>
+        </div> 
+        -->
+    </div>
+
+    <script>
+
+        //https://raw.githubusercontent.com/yopy0817/data_example/master/hello.json
+        /* 
+                fetch('https://raw.githubusercontent.com/yopy0817/data_example/master/hello.json').
+                then(function(response){
+        
+                    if(response.status != 200){
+        
+                        retrun;
+        
+                    }
+        
+                    return response.json();
+        
+                }).then(function(data){
+        
+                    return data;
+                }).then(function(data){
+        
+                    return data;
+        
+                }).then(function(data){
+        
+                    console.log(data);
+                }) */
+
+        //'https://yts.mx/api/v2/list_movies.json?page=2' 
+        //30개데이터, 1080화소, 인기있는 영화 정렬
+        fetch('https://yts.mx/api/v2/list_movies.json?limit=30&quality=1080p&sort_by=rating').then(function (response) {
+
+            return response.json();
+        })
+            .then(function (result) {
+
+                console.log(result);
+
+                var arr = result.data.movies; //동일=> var arr = result['data']['movies'];
+                //console.log(arr);
+
+                //medium_cover_image, title, summary, genres 꺼내기
+
+                var sum = ""; //화면을 그릴 문자열
+                for (var i = 0; i < arr.length; i++) {
+
+                    var img = arr[i].medium_cover_image;
+                    var title = arr[i].title;
+                    var summary = arr[i].summary;
+                    var genres = arr[i].genres;
+
+                    //console.log(title);
+
+                    sum += '<div class="movie">';
+                    sum += '<img src="'+ img +'" alt="">';
+                    sum += '<div class="inner">';
+                    sum += '<h3 class="title">'+ title +'</h3>';
+                    sum += '<p class="summary">'+ summary +'</p>';
+                    sum += '<ul class="genres">';
+
+                        for(var j in genres){                            
+                            sum += '<li>'+ genres[j] +'</li>';
+                        }
+                    sum += '</ul>';
+                    sum += '</div>';
+                    sum += '</div>';
+                
+                }//end for
+
+                document.querySelector(".movieList").innerHTML = sum;
+
+            })
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

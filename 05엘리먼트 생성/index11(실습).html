@@ -63,11 +63,22 @@
                 <div class="inner"><img src="../03엘리먼트 선택/img/2.jpg"></div>
             </div>
             <div class="right">
-                <div class="inner " id="t_content">
-                    <p id="a">자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고
+                <div class="inner outer" id="t_content">
+                    <p>자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고
                         있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다</p>
                     <a href="https://www.naver.com">위키백과</a>
-                    <p id="b" style="display: none";>홍길자 <br> 20세 <br>능력단위 <br>Java, Oracle,JSP, CSS, Javascript</p>   
+
+                </div>
+
+                <div class="inner hide" style="display: none; border: 1px solid #777; height:300px">
+
+                    <p>
+                        홍길자<br>
+                        20세<br>
+                        능력단위<br>
+                        Java,Oracle, JSP, CSS, Javascript<br>
+                    </p>
+
                 </div>
             </div>
         </div>
@@ -75,74 +86,77 @@
 
     <script>
 
-        var btn = document.getElementById("btn1");
-        var text = document.querySelector(".inner p");
-        var link = document.querySelector(".inner a");
-        var inner = document.getElementById("t_content");
+        var darkBtn = document.getElementById("btn1");
+        var contentsBtn = document.getElementById("btn2");
+        var bodyTag = document.querySelector("body");
+        var white_text = document.querySelectorAll("h2, #t_content> p, #t_content > a, .hide > p");
+        var outer = document.getElementById("t_content");
+      
+        darkBtn.onclick = function () {
 
-        console.log(inner);
-        btn.onclick = function () {
+            if (darkBtn.className == 'dark') {
+
+                bodyTag.style.backgroundColor = "black";
+
+                for (var i = 0; i < white_text.length; i++) {
+
+                    white_text[i].style.color = "white";
+
+                }
+
+                darkBtn.classList.add("bright");
+                darkBtn.classList.remove("dark");
+                darkBtn.innerHTML = "밝게보기";
 
 
-            if (btn.classList.contains("d")) { //어둡게
+            } else if(darkBtn.className =='bright') {
 
-                btn.classList.remove("d");
-                document.body.style.backgroundColor = " black ";
-                btn.previousElementSibling.style.color = "white";
-                text.style.color = "white";
-                btn.innerHTML = "밝게보기";
+                bodyTag.style.backgroundColor = "white";
 
+                for (var i = 0; i < white_text.length; i++) {
 
-            } else {//밝게
+                    white_text[i].style.color = "black";
 
-                btn.classList.add("d");
-                document.body.style.backgroundColor = " white";
-                btn.previousElementSibling.style.color = "black";
-                text.style.color = "black";
-                btn.innerHTML = "어둡게보기";
+                }
 
+                darkBtn.classList.add("dark");
+                darkBtn.classList.remove("bright");
 
 
             }
 
         }
 
-        var n_btn = document.getElementById("btn2");
+        var profile = document.querySelector(".hide");
 
-        n_btn.onclick = function () {
+        contentsBtn.onclick = function(){
 
-            if (n_btn.classList.contains("n")) {//이름보기
+            if(contentsBtn.className == 'name'){
 
-                n_btn.classList.remove("n");
-                n_btn.innerHTML = "내용보기";
-                link.remove();
+                outer.style.display = 'none';             
+                profile.style.display = 'block';
+                contentsBtn.innerHTML = "내용보기";
 
-            } else {//내용보기
-                n_btn.classList.add("n");
-                n_btn.innerHTML = "이름보기";
-                
-                  
-                
+                contentsBtn.classList.add("contents");
+                contentsBtn.classList.remove("name");
 
+            } else if(contentsBtn.className == 'contents'){
 
+                profile.style.display = 'none';
+                outer.style.display = 'block';             
+                contentsBtn.innerHTML = "이름보기";
 
-
-
-
-
+                contentsBtn.classList.add("name");
+                contentsBtn.classList.remove("contents");
             }
 
-
         }
+
 
 
 
 
     </script>
-
-
-
-
 
 
 

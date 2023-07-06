@@ -51,7 +51,7 @@
         var func3 = document.querySelector(".func3");
 
         //버블링 페이즈
-        /* func1.onclick = function () {
+        func1.onclick = function () {
             
             alert('func1 실행');
            
@@ -60,21 +60,21 @@
         func2.onclick = function () {
             
             alert('func2 실행');
-            event.stopPropagation(); //이벤트 전파를 막음(웬만해서는 쓰지않음)
+           /*  event.stopPropagation(); //이벤트 전파를 막음(웬만해서는 쓰지않음) */
            
         }
         
         func3.onclick = function () {
 
             alert('func3 실행');
-        } */
+        }
         
 
 
 
         //이벤트 캡쳐링 페이즈 (부모 -> 자식) 순으로 실행 -> 잘 안씀
         //이벤트 리스너만 가능합니다. 
-        /* func1.addEventListener('click', function(){
+        func1.addEventListener('click', function(){
 
             alert('func1 번 실행');
 
@@ -82,15 +82,15 @@
         func2.addEventListener('click', function(){
 
             alert('func2 번 실행');
-            event.stopPropagation();
-
+            /* event.stopPropagation();
+ */
         },true);
         func3.addEventListener('click', function(){
 
             alert('func3 번 실행');
 
         },true);
- */
+
 
     </script>
 

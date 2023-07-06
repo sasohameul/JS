@@ -22,7 +22,7 @@
     <script>
         var box = document.querySelector('.box');
         box.onclick = function(){
-
+ 
             event.preventDefault(); //고유이벤트 중단
 
             if(event.target.tagName != "A"){ //A태그 아니라면 중단
@@ -39,9 +39,10 @@
             //console.log(event.target.dataset.info);
 
             var value = event.target.dataset.info;
+            console.log(value);
             var obj = JSON.parse(value);//JSON 문자열을 => 객체로
 
-            console.log(obj);
+            console.log(obj.id);
         }
     </script>
 
