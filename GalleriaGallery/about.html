@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="css/about.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -15,7 +15,9 @@
 
 <body>
 
-    <div class="buttons"><button class="dark">DARK</button></div>
+    <div class="buttons">
+        <button class="dark" id="tog">DARK</button>
+    </div>
     <header>
       <div class="menu">
         <ul class="top_left">
@@ -45,6 +47,8 @@
         <div class="small_title">
             <h4>세계적인 권위의 전시회, GALLERIAGALLERY</h5>
         </div>
+
+        
 
         <div class="description">
             <p>
@@ -81,7 +85,7 @@
 
         </swiper-container>
 
-        <script src="picswiper.min.js"></script>
+        <script src="js/picswiper.min.js"></script>
 
     </div>
 
@@ -213,9 +217,12 @@
 
 
     </section>
+    
+    <img id="scroll_B_up" class="bright" src="img/scroll_up_bright.png" alt="" onclick="scrollUpB()" >
+    <img id="scroll_B_down" class="bright" src="img/scroll_down_bright.png" alt="" onclick="scrollDownB()">
 
-
-
+    <script src="js/about.js"></script>
+   
 
 </body>
 
